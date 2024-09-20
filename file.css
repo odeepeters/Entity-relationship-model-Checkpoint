@@ -1,0 +1,114 @@
+/* To create an Entity-Relationship Model (ERM) based on the provided requirements for the gym chain, we can identify the main entities and their relationships. Here’s a breakdown of the entities and their attributes, along with the relationships between them.
+
+ENTITIES and ATTRIBUTES
+1. Gym
+Attributes:
+Gym ID (Primary Key)
+Name
+Address
+Phone Number
+
+
+2. Member
+Attributes:
+Member ID (Primary Key)
+Last Name
+First Name
+Address
+Date of Birth
+Gender
+Gym ID (Foreign Key)
+
+
+3. Session
+Attributes:
+Session ID (Primary Key)
+Sport Type
+Schedule
+Gym ID (Foreign Key)
+Maximum Members (fixed at 20)
+
+
+4. Coach
+Attributes:
+Coach ID (Primary Key)
+Last Name
+First Name
+Age
+Specialty
+
+
+5. Coaching_Session
+Attributes:
+Coaching Session ID (Primary Key)
+Session ID (Foreign Key)
+Coach ID (Foreign Key)
+
+
+RELATIONSHIPS
+1. Gym to Member:
+One-to-Many: A gym can have many members, but each member is registered at one gym.
+
+2Gym to Session:
+One-to-Many: A gym can host many sessions, but each session is specific to one gym.
+
+3. Session to Member:
+Many-to-Many: A session can accommodate many members, and a member can attend many sessions. This will require a join table (e.g., Session_Member).
+
+4. Session to Coach:
+Many-to-Many: A session can have up to two coaches, and a coach can lead multiple sessions. This will also require a join table (e.g., Coaching_Session). */
+
+
+
+[ Gym ]
+   | Gym ID (PK)
+   | Name
+   | Address
+   | Phone Number
+   |
+   | 1
+   |
+   | N
+[ Member ]
+   | Member ID (PK)
+   | Last Name
+   | First Name
+   | Address
+   | Date of Birth
+   | Gender
+   | Gym ID (FK)
+   |
+   | N
+   |
+   | M
+[ Session ]
+   | Session ID (PK)
+   | Sport Type
+   | Schedule
+   | Gym ID (FK)
+   | Max Members
+   |
+   | N
+   |
+   | M
+[ Member_Session ]  (Join Table)
+   | Session ID (FK)
+   | Member ID (FK)
+   |
+   | N
+   |
+   | M
+[ Coach ]
+   | Coach ID (PK)
+   | Last Name
+   | First Name
+   | Age
+   | Specialty
+   |
+   | N
+   |
+   | M
+[ Coaching_Session ]  (Join Table)
+   | Coaching Session ID (PK)
+   | Session ID (FK)
+   | Coach ID (FK)
